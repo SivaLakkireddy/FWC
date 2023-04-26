@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage{multimedia}
+\usepackage[none]{hyphenat}
+\usepackage{enumitem}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{ragged2e}
+\usepackage{kvmap}
+\usepackage{karnaugh-map}
+\usepackage{multirow}
+\usepackage[english]{babel}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,automata,petri,positioning,calc}
+
+\title{VERIFICATION OF BOOLEAN IDENTITIES USING EMBEDDED-C}
+\date{March 2023}
+\author{Lakkireddy Veerasiva Reddy\\lakkireddyveerasivareddy@gmail.com - FWC22122\\IIT Hyderabad-Future Wireless Communication}
+\date{}
+\sloppy
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+	\pagebreak
+\section{PROBLEM}
+\textbf{(GATE CS-2019)}\\
+\textbf{Q.6} Which one the following is not a valid identity?
+\begin{enumerate}[label=(\Alph*)]
+	\item $ (x\oplus y)\oplus z = x\oplus (y\oplus z)$
+	\item $ (x + y)\oplus z = x\oplus (y + z)$
+	\item $ x\oplus y = x + y, if xy = 0$
+	\item $ x\oplus y = (xy + x'y')'$
+\end{enumerate}
+\bigskip
+
+\section{COMPONENTS}
+
+\begin{table}[h]
+\centering
+\input{tables/table1.tex}
+\caption{Components}
+\label{table:Components}
+\end{table}
+\vspace{5mm}
+
+\section{INTRODUCTION}
+\paragraph{}
+	An "identity" is merely a relationship that is always true, regardless of the values that any variables involved might take on; similar to laws or properties. Many of these can be analogous to normal multiplication and addition, particularly when the symbols {0,1} are used for {FALSE, TRUE}. 
+\bigskip 
+
+\section{TRUTH TABLE}
+The Truth Table for the above identities is ass follows:
+\begin{enumerate}[label=\textbf{(\Alph*})]
+	\item \textbf{$  (x\oplus y)\oplus z = x\oplus(y\oplus z)$} \\
+where $Y1=(x\oplus y)\oplus z,Y2=x\oplus(y\oplus z)$\\
+\bigskip
+\begin{table}[ht!]
+	\centering
+        \input{tables/table2.tex}
+	\caption{Truth Table}
+	\label{Table:Truth Table}
+\end{table}
+\bigskip
+\bigskip
+	
+	\item \textbf{$(x+y)\oplus z=x\oplus(y+z)$}\\
+where $Y1=(x+y)\oplus z, Y2=x\oplus(y+z)$\\
+\bigskip
+\begin{table}[ht!]
+	\centering
+       \input{tables/table3.tex}
+	\caption{Truth Table}
+	\label{Table:Truth Table}
+\end{table}
+\bigskip
+
+	\item \textbf{$x\oplus y = x + y, if xy = 0 $} \\
+where $Y1=x\oplus y=x+y, if xy=0$\\
+\bigskip
+\begin{table}[ht!]
+	\centering
+     \input{tables/table4.tex} 
+	\caption{Truth Table} 
+	\label{Table:Truth Table}
+\end{table}
+\bigskip
+
+	\item \textbf{$ x\oplus y = (xy + x'y')'$}\\
+		where $(xy+x'y')'=(x'+y')(x+y)$\\
+		      $=x\oplus y$\\
+The Truth Table for $x\oplus y$ is as follows:\\
+\begin{table}[ht!]
+	\centering
+	\input{tables/table5.tex} 
+	\caption{Truth Table} 
+	 \label{Table:Truth Table}
+\end{table}
+\bigskip
+
+\paragraph{}
+	Here, Except \textbf{(B)} identity all other identies are valid according to the mentioned truth tables.
+\end{enumerate}
+\bigskip
+
+
+\section{IMPLEMENTATION}
+  \begin{table}[ht!]
+    \centering	  
+  \input{tables/table6.tex}
+  \caption{Connections} 
+  \label{Table:Connections}
+  \end{table}
+\bigskip
+
+\subsection{PROCEDURE}
+\begin{enumerate} 
+\item Connect the circuit as per the above table.
+\item Connect one end of the resistor to anode of LED and cathode of LED to ground.
+\item Connect the output pin to LED.
+\item Connect inputs to Vcc for logic 1, ground for logic 0.
+\item Execute the circuit using the below code.
+\end{enumerate}
+
+\section{SOFTWARE}
+  Now execute the following codes and upload in arduino to see the results.\\
+
+
+\begin{tabularx}{1\textwidth} { 
+  | >{\centering\arraybackslash}X |}
+  \hline
+  https://github.com/SivaLakkireddy/FWC/blob/main/Embedded-C/codes\\
+  \hline
+\end{tabularx}
+
+
+\bibliographystyle{ieeetr}
+\end{document}	
