@@ -1,0 +1,108 @@
+
+\def\mytitle{IMPLEMENTING THE CIRCUIT BELOW\\ USING ARM(VAMAN)}
+\def\mykeywords{}
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.75    cm,bottom=1.5cm]{geometry}
+%  \twocolumn
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{circuitikz}
+\usepackage{tabularx}
+\usepackage{tikz}
+%\usepackage{geometry}
+%\usetikzlibrary{shapes,arrows,chains,decorations.markings,intersections,calc}
+\usetikzlibrary{positioning}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithm2e}
+\usepackage{karnaugh-map}                           
+\usepackage{datetime}
+\usepackage{amsmath}
+\usepackage{textgreek}
+\usepackage{tikz}
+\usetikzlibrary{calc}                         
+\usetikzlibrary{circuits.logic.US}
+\title{\mytitle}
+ \author{LAKKIREDD VEERASIVA REDDY\\lakireddyveerasivareddy@gmail.com\\FWC22122 IITH-Future Wireless Communications     Assignment-ARM}
+\date{}
+\sloppy
+\lstset{                                          
+language=C++,                           
+basicstyle=\ttfamily\footnotesize,   
+breaklines=true,                       
+frame=lines
+}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+\section{Problem}
+(GATE2020-EC)\\
+50. For the components in the sequential circuit shown below,$t_p$ is the propagation delay,$t_s$ is the setup time and $t_h$ is the hold time.The maximum clock frequency (rounded off to the nearest integer), at which the given circuit can operate reliably , is ................. MHz.\newline
+\begin{figure}[h]
+\centering
+\input{figs/fig1.tex}
+\caption{circuit}
+\label{figure 1}
+\end{figure}
+\section{Introduction}
+
+            The aim is to implement the above sequential circuit using D flip-flops.IC 7474 is a dual positive edge triggered D type flip flop,which means it has two separate flip-flop that are triggered by the rising edge of a clock signal.
+
+		In the above circuit $Q_1$,$Q_2$ and $X$ are inputs and $D_1$,$D_2$ are outputs.So,from the circuit the expressions of $D_1$ and $D_2$ are:
+
+		$D_1 = Q_2$.\\
+		$D_2 = Q_1.X$.\\
+
+Below is the transition table of the above circuit which is as follows:
+\pagebreak
+
+	\begin{table}[h]
+		\begin{center}
+			\input{tables/table1.tex}
+			\caption{Transition table}
+			\label{table:1}
+		\end{center}
+	\end{table}
+
+\section{Components}
+\begin{table}[h]
+\centering
+\input{tables/table2.tex}
+\caption{Components}
+\label{table:components}
+\end{table}
+\subsection{Vaman} 
+The Vaman (pygmy) has some ground pins, digital pins that can be used for both input as well as output.It also has two power pins that can generate 3.3V. In the following exercises, we use digital pins,GND and 5V .
+\subsection{Seven Segment Display}
+The seven segment display has eight pins, \emph{a,b,c,d,e,f,g} and \emph{dot} that take an active LOW input,i.e. the LED will glow only if the input is connected to ground.Each of these pins is connected to an LED segment.The \emph{dot} pin is reserved for the LED.
+\section{Implementation}
+The connections between the arduino and IC 7474 is as follows:
+   \begin{table}[h]
+	   \begin{center}
+		   \input{tables/table3.tex}
+		   \caption{connections}
+		   \label{table:3}
+	   \end{center}
+   \end{table}  
+         
+\section{Software}
+To implement the above code using arm the following code can be used to implement:
+
+   \begin{tabularx}{1\textwidth} { 
+  | >{\centering\arraybackslash}X |}
+  \hline
+  https://github.com/SivaLakkireddy/FWC/blob/main/Vaman/ARM/codes/src/main.c\\
+  \hline
+\end{tabularx}
+
+
+\bibliographystyle{ieeetr}
+\end{document}
+
