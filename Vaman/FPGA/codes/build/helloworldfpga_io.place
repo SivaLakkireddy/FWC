@@ -1,0 +1,4 @@
+#Block Name x   y   z    pcf_line
+#------ --  --  -    ----
+$iopadmap$MainModule.q1  24  32  0  # set_io q1     39
+$iopadmap$MainModule.q2  30  32  0  # set_io q2     38
