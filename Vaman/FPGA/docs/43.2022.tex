@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{multirow}
+\usepackage{blindtext}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{subcaption}
+\usepackage{circuitikz}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage[none]{hyphenat}
+\usepackage{karnaugh-map}
+\usetikzlibrary{shapes.geometric}
+
+\lstset{
+	language=C++,
+	basicstyle=\ttfamily\footnotesize,
+	breaklines=true,
+	frame=lines
+	}
+
+\title{Implementation of Boolean Logic in Arduino using IC 7474 in FPGA}
+\date{February 2023}
+\author{LAKKIREDDY VEERASIVA REDDY\\lakkireddyveerasivareddy@gmail.com\\FWC22122\\IIT Hyderabad-Future Wireless Communication Assignment}
+\date{}
+\begin{document}
+\maketitle
+	\tableofcontents
+
+\pagebreak
+\section{Problem}
+	(GATE EC-2022)\\
+	Q.43. For the circuit shown, the clock frequency is $f0$ and the duty cycle is $25 \%$. For the signal at the $Q$ output of the Flip-Flop,
+\\
+	\begin{figure}[h]
+		\centering
+	\input{figs/fig1.tex}
+		\caption{Circuit}
+		\label{fig:1}
+	\end{figure}
+
+\begin{enumerate}
+	\item frequency of $\frac{f0}{4}$ and duty cycle is 50$\%$
+	\item frequency of $\frac{f0}{4}$ and duty cycle is 25$\%$
+	\item frequency of $\frac{f0}{2}$ and duty cycle is 50$\%$
+	\item frequency of $f0$ and duty cycle is 25$\%$ \\
+\end{enumerate}
+
+\section{Introduction}
+		The Aim is to implement the above circuit in Arduino using IC 7474. IC 7474 is a dual positive-edge-triggered D-type flip-flop, which means it has two seperate flip-flop that are triggered by the rising edge of a clock signal. A 2-bit binary counter can be implemented using 2 D Flip-flops similarly a JK Flip-flop can be implemented using one D Flip-flop. Thus we will use two IC 7474 to implement the whole circuit.\\
+
+		The LSB output of the 2-bit binary counter is given to J and K inputs of the JK Flip-flop which then gives the final Q output of the circuit. Since the inputs given to J and K are same it acts as T Flip-flop.\\
+\section{Components}
+	\begin{table}[h]
+		\begin{center}
+			\input{tables/table1.tex}
+			\caption{Components}
+			\label{table:1}
+		\end{center}
+	\end{table}
+\pagebreak
+\section{Hardware}
+	The IC 7474 is a type of flip-flop integrated circuit that is commonly used indigital electronics applications. It is a dual positive-edge-triggered by the rising edge of a clock signal. Below is the pin diagram of IC 7474. \\
+		\begin{figure}[h]
+			\centering
+		\input{figs/fig2.tex}
+			\caption{7474}
+			\label{fig:2}
+		\end{figure}
+
+	The connections between Arduino UNO and two IC 7474 is given in below Table \\
+	\begin{table}[h]
+		\begin{center}
+	\input{tables/table2.tex}
+			\caption{Arduino - 7474}
+			\label{table:2}
+		\end{center}
+	\end{table}
+
+	The truth table for the circuit is given in below table \\
+	
+		\begin{table}[h]
+		\begin{center}
+			\input{tables/table3.tex}
+			\caption{Truth Table}
+			\label{table:3}
+		\end{center}
+		\end{table}
+
+		The kmap for the circuit is \\
+		\begin{figure}[h]
+			\centering
+			\begin{karnaugh-map}[4][2][1][$JK$][$Qn$]
+                        \minterms{2,3,4,6}
+                        \autoterms[0]
+                        \implicant{3}{2}
+                        \implicantedge{4}{4}{6}{6}
+                        \end{karnaugh-map}
+			\caption{kmap}
+			\label{fig:3}
+		\end{figure}
+\section{Software}
+	The verilog code for the given circuit using IC 7474 is \\
+    
+\begin{tabularx}{1.25\textwidth} { 
+  | >{\centering\arraybackslash}X |}
+  \hline
+  https://github.com/SivaLakkireddy/FWC/blob/main/Vaman/FPGA/codes/helloworldfpga.v\\
+  \hline
+\end{tabularx}
+
+
+\bibliographystyle{ieeetr}
+
+\end{document}
