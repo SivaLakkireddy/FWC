@@ -33,17 +33,16 @@ Also given $\angle{B}=45^0$, so by finding the coordinates of the other side we 
 	  \input{./tables/table1.tex}
 	  \caption{Parameters}
 	  \label{tab:Table1}
-\end{table}
-
-\raggedright\textbf{Caluclating Other Coordinate: } 
+\end{table}\\
+Caluclating Other Coordinate:
   \begin{align}
 	  \vec{A} = c\myvec{\cos \theta\\\sin\theta}
 	  \end{align}\\
-\raggedright We know that
+We know that\\
 \begin{align}  
       c    
         =
-	\frac{1}{2(1-\frac{acos\vec{B}}{k})}
+	\frac{1}{2(1-\frac{a\cos\vec{B}}{k})}
 	 \vec{e_2}^{\top}
 	\myvec{1 & 1\\1 & -1}
 	\myvec{\frac{-a^2}{k}\\-k}
@@ -51,14 +50,14 @@ Also given $\angle{B}=45^0$, so by finding the coordinates of the other side we 
   \begin{align}
         c
 	  =
-         \frac{1}{2(1-\frac{acos\vec{B}}{k})}
+         \frac{1}{2(1-\frac{a\cos\vec{B}}{k})}
 	  \vec{e_2}^{\top}
 	  \myvec{\frac{-a^2}{k}-k\\\frac{-a^2}{k}+k}
   \end{align}
 \begin{align}
         c
          =
-         \frac{1}{2(1-\frac{8cos45^0}{3.5})}
+         \frac{1}{2(1-\frac{8\cos45^0}{3.5})}
 	  \myvec{0 & 1}
 	\myvec{\frac{-64}{3.5}-3.5\\\frac{-64}{3.5}+3.5}
   \end{align}	
@@ -70,23 +69,22 @@ Also given $\angle{B}=45^0$, so by finding the coordinates of the other side we 
      \end{align}
      \begin{align}
 	 c = 12
-      \end{align}
-  The vertices of $\Delta$ $ABC$ are \\
-\raggedright
+      \end{align}		
+The vertices of $\triangle$ $ABC$ are \\
 \begin{align}
- \vec{A} = 12\myvec{cos 45\degree\\sin 45\degree}
+ \vec{A} = 12\myvec{\cos 45\degree\\\sin 45\degree}
          = \myvec{8.48\\8.48}
 \end{align}
 \begin{align}
  \vec{B} = \myvec{0\\0}\\
  \vec{C} = \myvec{8\\0}
  \end{align} 	      
-\textbf{Construction:}\\
+Construction: \\
 \begin{figure}[h]
  \begin{center}
 	 \includegraphics[width=\columnwidth]{figs/triangle.pdf}
  \end{center}
  \caption{Triangle ABC}
  \label{fig:Fig1}
-\end{figure}	
+\end{figure}
 \end{document}
