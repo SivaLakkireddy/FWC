@@ -25,17 +25,31 @@ theta =45* np.pi/180
 a=8
 k=3.5
 e2=np.array(([0,1]))
-C=np.array(([8,0]))
-B=np.array(([0,0]))
-O =np.array(([1,-1],[-k,-k+2*a*np.cos(theta)]))
-D=np.array(([-k,a**2]))
-P=np.linalg.solve(O,D)
-b=P[1]
+C=np.array([8,0])
+B=np.array([0,0])
+#O =np.array(([1,-1],[-k,-k+2*a*np.cos(theta)]))
+#D=np.array(([-k,a**2]))
+#P=np.linalg.solve(O,D)
+#d=a*np.cos(theta)
+#p=d/k
+#f=1-p
+q1=np.array([[1,1],[1,-1]])
+q2=np.array(([-a**2/k,-k]))
+q=np.dot(q1,q2)
+#r=1/(2*f) 
+#s=np.transpose(e2)
+#t=np.dot(s,q) 
+#b=r*t
+#g=1/(2*(1-(a*np.cos(theta)/k)))  
+b=1/(2*(1-(a*np.cos(theta)/k)))*np.dot(np.transpose(e2),q)
+#q=np.dot(np.array([[1,1],[1,-1]]),np.array(([-k/a**2,-k])))
+#b=(1/2*(1-p))*e2.transpose()*q
+#b=np.(1/(2*(1-(a*np.cos(theta)/k)))*(np.transpose(e2)*np.array([[1,1],[1,-1]])*np.array(([-a^2/k,-k]))
 A=np.array(([b*np.cos(theta),b*np.sin(theta)]))
 print(A)
 l=(np.linalg.norm(B-A))
 m=(np.linalg.norm(A-C))                   
-print(round(l-m,1))
+#print(round(l-m,1))
 ##Generating all lines
 x_BC = line_gen(B,C)
 x_AB = line_gen(A,B)
@@ -64,7 +78,7 @@ plt.grid() # minor
 plt.axis('equal')
 
 #if using termux
-plt.savefig('/sdcard/fwc/vector/docs/figs/triangle.pdf')
+plt.savefig('/sdcard/fwc/11.2.2/figs/triangle.pdf')
 #subprocess.run(shlex.split("termux-open  /sdcard/FWC/matrices/matrix.pdf"))
 #else
-plt.show()
+#plt.show()
