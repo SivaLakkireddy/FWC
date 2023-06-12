@@ -18,7 +18,7 @@ def line_gen(A,B):
 def dir_vec(A,B):
    return B-A
 def norm_vec(A,B):
-   return np.matmul(omat, dir_vec(A,B))
+   return (omat@dir_vec(A,B))
 
 #Input parameters
 theta =45* np.pi/180
@@ -29,8 +29,8 @@ C=np.array([8,0])
 B=np.array([0,0])
 q1=np.array([[1,1],[1,-1]])
 q2=np.array(([-a**2/k,-k]))
-q=np.dot(q1,q2)
-b=1/(2*(1-(a*np.cos(theta)/k)))*np.dot(np.transpose(e2),q)
+q=q1@q2
+b=1/(2*(1-(a*np.cos(theta)/k)))*(e2.T)@q
 A=np.array(([b*np.cos(theta),b*np.sin(theta)]))
 print(A)
 l=(np.linalg.norm(B-A))
